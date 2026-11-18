@@ -1,0 +1,10 @@
+#! /usr/bin/env bash
+
+STEAM_CLIENT="$HOME/.steam/steam/steamrtarm64/client"
+INJECT_SLS="LD_AUDIT=$HOME/.local/share/SLSsteam/SLSsteam.so"
+
+steam(){
+exec env $INJECT_SLS $STEAM_CLIENT "$@"
+}
+
+steam "$@"
